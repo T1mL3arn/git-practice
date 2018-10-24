@@ -88,5 +88,6 @@ Rebase appeared an overkill solution for squashing commits. The same behavior ca
 git checkout -b new-branch
 # ... do commits
 git checkout master
-git merge --squash -m "your message" new-branch
+git merge --squash new-branch
+git commit -m "your message"
 ```
