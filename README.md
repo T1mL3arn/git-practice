@@ -64,3 +64,19 @@ c1   master                     | c1 <-- c234   master
  \                              |  \
   c2 <-- c3 <-- c4   branch     |   c2 <-- c3 <-- c4   branch
 ```
+
+## Final rebase
+
+When work is complete I need to copy current branch with command `git branch -c exp-3-preserve-log`. Branch `exp-3-preserve-log` become an archived branch with full history of current branch. Then commits from current branch will be squashed and merged into `master`.
+
+Git command for this might look like this:
+
+```
+git branch -c current-preserve-log
+git rebase -i commit-hash
+... do interactive rebasing
+git checkout master
+git merge current
+```
+
+Also note there is `git merge --squash` command that does almost the same.
