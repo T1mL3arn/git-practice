@@ -10,10 +10,10 @@ At first I have this:
 c1 <-- c2   master
 ```
 
-After checkout to the new branch `experiment` I have this:
+After checkout to the new branch `experiment` and couple of commits I have this:
 
 ```
 c1 <-- c2   master
         \
-        c3  experiment
+        c3 <-- c4   experiment
 ```
