@@ -9,3 +9,39 @@ At first I have this:
 ```
 c1 <-- c2   master
 ```
+
+After checkout to the new branch `experiment-2` and a couple of commits I have this:
+
+```
+c1 <-- c2   master
+        \
+        c3 <-- c4   experiment-2
+```
+
+It looks like command
+```
+git rebase --onto experiment-2~2 experiment-2~0 experiment-2
+```
+deletes commits from git history **completely**!
+
+Some exmplanation about above command:
+
+- `experiment-2~2` means 2 commits back from current state (HEAD I suppose)
+- `experiment-2~0` means 0 commits back from HEAD i.e. current index
+
+Whole command means 'get commits starting from 2 commits back up to (excluding ?) current index and delete those commits from history'.
+
+This is not what I want... So now I have this
+```
+c1 <-- c2   master
+        \
+        c3 <-- c4 <-- c5   experiment-2
+```
+
+After squashing it should be like this:
+```
+c1 <-- c2   master
+        \
+        c3456   experiment-2
+```
+Note new `6` number. Since that above new info is commited then there is 4 commits - from 3 to 6.
