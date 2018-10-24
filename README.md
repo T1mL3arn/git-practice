@@ -9,3 +9,11 @@ At first I have this:
 ```
 c1 <-- c2   master
 ```
+
+After checkout to the new branch `experiment` I have this:
+
+```
+c1 <-- c2   master
+        \
+        c3  experiment
+```
