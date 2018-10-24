@@ -45,3 +45,22 @@ c1 <-- c2   master
         c3456   experiment-2
 ```
 Note new `6` number. Since that above new info is commited then there is 4 commits - from 3 to 6.
+
+`git rebase -i HEAD~n` did the job. Now tree looks:
+
+```
+c1 <-- c2 <-- c3456   master
+        \
+        c3456   experiment-2
+```
+
+But I want more. I'd like to keep rebased branch history as it is but squash its commits and apply to public. What I need to do to achive this? 
+
+What tree should be:
+```
+before:                         | after:
+                                |
+c1   master                     | c1 <-- c234   master
+ \                              |  \
+  c2 <-- c3 <-- c4   branch     |   c2 <-- c3 <-- c4   branch
+```
