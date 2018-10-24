@@ -80,3 +80,13 @@ git merge current
 ```
 
 Also note there is `git merge --squash` command that does almost the same.
+
+## Merge and squash 
+
+Rebase appeared an overkill solution for squashing commits. The same behavior can be achived by this command:
+```git
+git checkout -b new-branch
+# ... do commits
+git checkout master
+git merge --squash -m "your message" new-branch
+```
